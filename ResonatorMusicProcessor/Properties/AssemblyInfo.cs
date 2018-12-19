@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ResonatorMusicProcessor")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("The class library for adaptive music playback.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("2RAS")]
 [assembly: AssemblyProduct("ResonatorMusicProcessor")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
