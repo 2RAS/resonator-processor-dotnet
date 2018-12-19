@@ -60,6 +60,7 @@
     <Compile Include="Mixer.cs" />
     <Compile Include="ResonatorMixer.cs" />
     <Compile Include="ResonatorPlayer.cs" />
+    <Compile Include="ResonatorProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

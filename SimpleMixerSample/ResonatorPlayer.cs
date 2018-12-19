@@ -1,31 +1,40 @@
 ﻿using System;
-using CSCore;
 using CSCore.SoundOut;
 
 namespace ResonatorBeta
 {
-    internal class ResonatorPlayer : IDisposable
+    public class ResonatorPlayer : IDisposable
     {
+        private ResonatorProcessor processor = null;
         private readonly ISoundOut outputApi;
 
         public ResonatorPlayer(int latency = 200) // better use a quite high latency
             => outputApi = new WasapiOut() { Latency = latency };
 
-        internal void Play()
+        public void Play()
             => outputApi.Play();
-        internal void Stop()
+        public void Stop()
             => outputApi.Stop();
 
-        internal void Pause()
+        public void Pause()
             => outputApi.Pause();
 
-        internal void Resume()
+        public void Resume()
             => outputApi.Resume();
 
-        internal void Use(ResonatorMixer mixer)
-            => outputApi.Initialize(mixer.ToWaveSource());
+        public void Use(ResonatorProcessor processor)
+        {
+            this.processor = processor;
+            outputApi.Initialize(processor.ToWaveSource());
+        }
 
-        void IDisposable.Dispose()
-            => outputApi.Dispose();
+        public void Dispose()
+        {
+            outputApi.Dispose();
+            if (processor != null)
+            {
+                processor.Dispose();
+            }
+        }
     }
 }
